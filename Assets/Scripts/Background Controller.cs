@@ -10,12 +10,13 @@ public class BackgroundController : MonoBehaviour
     [SerializeField] private Vector3 Direction;
     [SerializeField] private float Background1X;
     [SerializeField] private float Background2X;
-
+    private Color m_NewColor;
 
 
 
     //Organisation Variables
-    [SerializeField] private int BackgroundCounter;
+    [SerializeField] private int Background1Counter;
+    [SerializeField] private int Background2Counter;
     [SerializeField] private int SectionColour;
     private Sprite[] sprites;
     [SerializeField] private GameObject Background1;
@@ -49,7 +50,13 @@ public class BackgroundController : MonoBehaviour
 
     private void BackgroundChange(GameObject Background)
     {
+        m_NewColor = new Color(Random.Range(0f, 255f), Random.Range(0f, 255f), Random.Range(0f, 255f));
         Background.transform.position = SpawnPoint.transform.position;
+        Background.GetComponent<SpriteRenderer>().color = m_NewColor;
+        Debug.Log(Background.GetComponent<SpriteRenderer>().color);
+        Background.SetActive(false);
+        Background.SetActive(true);
+
 
     }
 }
