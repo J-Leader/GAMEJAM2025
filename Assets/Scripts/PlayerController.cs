@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private LayerMask player;
     private LayerMask obstacles;
 
+    public GameObject gameManager;
+
 
 
     void Awake()
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         stunned();
     }
 
@@ -44,7 +47,9 @@ public class PlayerController : MonoBehaviour
     void stunned()
     {
         if (gameObject.GetComponent<Collider2D>().IsTouchingLayers(obstacles)) {
-            Debug.Log("Yeah m8");
+
+            gameManager.GetComponent<GameManager>().running = false;
+            Debug.Log("You've hit the trash can");
         }
     }
 }
