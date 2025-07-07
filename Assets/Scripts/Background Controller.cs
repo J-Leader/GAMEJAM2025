@@ -30,7 +30,7 @@ public class BackgroundController : MonoBehaviour
     {
         Direction = new Vector3(1f, 0f, 0f);
     }
-
+    
     private void FixedUpdate()
     {
         Background1.transform.position = Background1.transform.position - Direction * Time.fixedDeltaTime;
@@ -49,11 +49,15 @@ public class BackgroundController : MonoBehaviour
         }
 
     }
+    private void Update()
+    {
+        //Background1.GetComponent<SpriteRenderer>().color = new Color(0f, 255f, 0f);
+    }
 
     private void BackgroundChange(GameObject Background)
     {
         Background.transform.position = SpawnPoint.transform.position;
-        Background.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 255f), Random.Range(0f, 255f), Random.Range(0f, 255f)); ;
+        Background.GetComponent<SpriteRenderer>().color = new Color(0f, 255f, 0f); 
         Debug.Log(Background.GetComponent<SpriteRenderer>().color);
         
 
