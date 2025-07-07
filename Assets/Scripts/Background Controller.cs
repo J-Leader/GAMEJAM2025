@@ -38,24 +38,24 @@ public class BackgroundController : MonoBehaviour
         if (Background1X <= -20) 
         {
             BackgroundChange(Background1);
+            Background1Counter = Background1Counter + 2;
         }
         Background2.transform.position = Background2.transform.position - Direction * Time.fixedDeltaTime;
         Background2X = Background2.transform.position.x;
         if (Background2X <= -20)
         {
             BackgroundChange(Background2);
+            Background2Counter = Background2Counter + 2;
         }
 
     }
 
     private void BackgroundChange(GameObject Background)
     {
-        m_NewColor = new Color(Random.Range(0f, 255f), Random.Range(0f, 255f), Random.Range(0f, 255f));
         Background.transform.position = SpawnPoint.transform.position;
-        Background.GetComponent<SpriteRenderer>().color = m_NewColor;
+        Background.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 255f), Random.Range(0f, 255f), Random.Range(0f, 255f)); ;
         Debug.Log(Background.GetComponent<SpriteRenderer>().color);
-        Background.SetActive(false);
-        Background.SetActive(true);
+        
 
 
     }
