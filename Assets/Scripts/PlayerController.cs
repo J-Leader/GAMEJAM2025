@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerControls controls;
     private InputAction movement;
-    //private Rigidbody2D rb2d;
+    private Rigidbody2D rb2d;
 
     public float push; // the variable for pushing the pakyer up
 
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
         movement.performed += jump;
         player = LayerMask.GetMask("Player");
         obstacles = LayerMask.GetMask("Obstacles");
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void jump(InputAction.CallbackContext context)
     {
-        transform.Translate(Vector3.up * push);
+        rb2d.AddForce(Vector3.up * push, ForceMode2D.Impulse);
     }
 
     void stunned()
