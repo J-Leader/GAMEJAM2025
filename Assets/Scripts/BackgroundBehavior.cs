@@ -9,6 +9,7 @@ public class BackgroundBehavior : MonoBehaviour
     [SerializeField] private Vector3 Direction;
     //Gameobject Reference Variables
     [SerializeField] private GameObject Background;
+    [SerializeField] private GameObject SpawnPoint;
 
 
     //Organisation Variables
@@ -19,6 +20,7 @@ public class BackgroundBehavior : MonoBehaviour
     private void OnEnable()
     {
         Direction = new Vector3(1f, 0f, 0f);
+        //SpawnPoint = .FindWithTag("BackgroundSpawn");
     }
 
     private void FixedUpdate()
@@ -28,9 +30,6 @@ public class BackgroundBehavior : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-          
-    }
+ 
 
 }
