@@ -152,9 +152,9 @@ TextureImporter:
       name: background 2 white bg_0
       rect:
         serializedVersion: 2
-        x: 6419
+        x: 6538
         y: 0
-        width: 2201
+        width: 2017
         height: 2070
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

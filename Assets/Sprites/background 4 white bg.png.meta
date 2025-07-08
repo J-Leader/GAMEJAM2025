@@ -152,12 +152,12 @@ TextureImporter:
       name: background 4 white bg_0
       rect:
         serializedVersion: 2
-        x: 2086
+        x: 2478
         y: 0
-        width: 2506
+        width: 2017
         height: 2070
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

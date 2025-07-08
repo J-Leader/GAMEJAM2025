@@ -50,28 +50,30 @@ public class BackgroundController : MonoBehaviour
 
 
     }
-    
+
     private void FixedUpdate()
     {
-        
+
 
         if (gameManager.running == true)
         {
             Background1.transform.position = Background1.transform.position - Direction * Time.fixedDeltaTime * Speed;
             Background1X = Background1.transform.position.x;
-            if (Background1X <= -22.75)
+            if (Background1X <= -23.5)
             {
                 BackgroundChange(Background1, Background1Counter);
-                Background1Counter = Random.Range(0, 2);
+                Background1Counter = Random.Range(0, 3);
             }
             Background2.transform.position = Background2.transform.position - Direction * Time.fixedDeltaTime * Speed;
             Background2X = Background2.transform.position.x;
-            if (Background2X <= -22.75)
+            if (Background2X <= -23.5)
             {
                 BackgroundChange(Background2, Background2Counter);
-                Background2Counter = Random.Range(0, 2);
+                Background2Counter = Random.Range(0, 3);
             }
         }
+        
+        
         
 
     }
