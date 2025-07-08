@@ -41,14 +41,14 @@ public class BackgroundController : MonoBehaviour
     {
         if (gameManager.running == true)
         {
-        Background1.transform.position = Background1.transform.position - Direction * Time.fixedDeltaTime;
+        Background1.transform.position = Background1.transform.position - Direction * Time.fixedDeltaTime*Speed;
         Background1X = Background1.transform.position.x;
         if (Background1X <= -20) 
         {
             BackgroundChange(Background1);
             Background1Counter = Background1Counter + 2;
         }
-        Background2.transform.position = Background2.transform.position - Direction * Time.fixedDeltaTime;
+        Background2.transform.position = Background2.transform.position - Direction * Time.fixedDeltaTime*Speed;
         Background2X = Background2.transform.position.x;
         if (Background2X <= -20)
         {

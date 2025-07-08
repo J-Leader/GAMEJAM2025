@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EnvironmentalSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject ObstaclePrefab;
+    [SerializeField] private GameObject[] ObstaclePrefab = new GameObject[1];
 
     [SerializeField] private float SpawnTimer;
     [SerializeField] private Vector3 SpawnPos;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private float SpawnTimerMax;
     [SerializeField] private float SpawnTimerMin;
+    [SerializeField] private int SpawnPrefab;
 
 
 
@@ -18,6 +19,7 @@ public class EnvironmentalSpawner : MonoBehaviour
     {
         SpawnTimer = Random.Range(SpawnTimerMin, SpawnTimerMax);
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        
 
     }
 
@@ -25,8 +27,8 @@ public class EnvironmentalSpawner : MonoBehaviour
     void FixedUpdate()
     {
         SpawnTimer = SpawnTimer - Time.fixedDeltaTime;
-        SpawnPos = new Vector3(transform.position.x, transform.position.y - Random.Range(0, 2f), transform.position.z);
-
+        SpawnPos = new Vector3(transform.position.x, transform.position.y - Random.Range(0.5f, 2f), transform.position.z);
+        SpawnPrefab = Random.Range(0, 1);
         if (SpawnTimer <= 0)
         {
             Spawn();
@@ -36,7 +38,7 @@ public class EnvironmentalSpawner : MonoBehaviour
 
     void Spawn()
     {
-        Instantiate(ObstaclePrefab, SpawnPos, Quaternion.identity);
+        Instantiate(ObstaclePrefab[SpawnPrefab], SpawnPos, Quaternion.identity);
         SpawnTimer = Random.Range(SpawnTimerMin-gameManager.SectionNumber, SpawnTimerMax-gameManager.SectionNumber);  
 
      }

@@ -44,8 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c967f73ee9b4164fa2749a613a0f0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstaclePrefab: {fileID: 6121038670186855256, guid: 4424d8483e9099e46a2e79a108c7c938, type: 3}
+  ObstaclePrefab:
+  - {fileID: 8341197323740387985, guid: 46a0b7e78275b5e4aa68fae38a8c2943, type: 3}
+  - {fileID: 3417096146497612578, guid: ef26b98abae21874fb075fc09ed29d52, type: 3}
+  - {fileID: 0}
   SpawnTimer: 0
+  SpawnPos: {x: 0, y: 0, z: 0}
   gameManager: {fileID: 0}
   SpawnTimerMax: 3
   SpawnTimerMin: 8
+  SpawnPrefab: 0
