@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleSpawner : MonoBehaviour
+public class EnvironmentalSpawner : MonoBehaviour
 {
-
     [SerializeField] private GameObject ObstaclePrefab;
 
     [SerializeField] private float SpawnTimer;
-    
+    [SerializeField] private Vector3 SpawnPos;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private float SpawnTimerMax;
     [SerializeField] private float SpawnTimerMin;
@@ -26,20 +25,18 @@ public class ObstacleSpawner : MonoBehaviour
     void FixedUpdate()
     {
         SpawnTimer = SpawnTimer - Time.fixedDeltaTime;
-        
+        SpawnPos = new Vector3(transform.position.x, transform.position.y - Random.Range(0, 2f), transform.position.z);
 
         if (SpawnTimer <= 0)
         {
             Spawn();
 
         }
-
-
     }
 
     void Spawn()
     {
-        Instantiate(ObstaclePrefab, transform.position, Quaternion.identity);
+        Instantiate(ObstaclePrefab, SpawnPos, Quaternion.identity);
         SpawnTimer = Random.Range(SpawnTimerMin-gameManager.SectionNumber, SpawnTimerMax-gameManager.SectionNumber);  
 
      }
