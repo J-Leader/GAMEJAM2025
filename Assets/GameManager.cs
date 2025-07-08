@@ -31,12 +31,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        runTime += Time.fixedDeltaTime;
+        if (running)
+        {
+         runTime += Time.fixedDeltaTime;
         //Debug.Log(runTime);  
         if (runTime >= 15)
         {
             runTime = 0f;
             sectionNumber++;   
+        }   
         }
+        
     }
 }

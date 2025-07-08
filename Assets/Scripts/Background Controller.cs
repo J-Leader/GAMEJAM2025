@@ -19,20 +19,28 @@ public class BackgroundController : MonoBehaviour
     [SerializeField] private int Background2Counter;
     [SerializeField] private int SectionColour;
     private Sprite[] sprites;
+    private Color[] colours;
     [SerializeField] private GameObject Background1;
     [SerializeField] private GameObject Background2;
 
     //Gameobject Reference Variables
     [SerializeField] private GameObject SpawnPoint;
-  
+    [SerializeField] private GameManager gameManager;
+
 
     void Start()
     {
         Direction = new Vector3(1f, 0f, 0f);
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
+
+
     }
     
     private void FixedUpdate()
     {
+        if (gameManager.running == true)
+        {
         Background1.transform.position = Background1.transform.position - Direction * Time.fixedDeltaTime;
         Background1X = Background1.transform.position.x;
         if (Background1X <= -20) 
@@ -47,11 +55,9 @@ public class BackgroundController : MonoBehaviour
             BackgroundChange(Background2);
             Background2Counter = Background2Counter + 2;
         }
+        }
+        
 
-    }
-    private void Update()
-    {
-        //Background1.GetComponent<SpriteRenderer>().color = new Color(0f, 255f, 0f);
     }
 
     private void BackgroundChange(GameObject Background)
