@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-
+        startText.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame

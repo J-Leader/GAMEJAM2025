@@ -42,9 +42,10 @@ public class GameManager : MonoBehaviour
         {
             running = false;
         }
-        
+
         if (running)
         {
+            GetComponent<AudioSource>().enabled = true;
             runTime += Time.fixedDeltaTime;
             //Debug.Log(runTime);  
             if (runTime >= 15)
@@ -52,6 +53,10 @@ public class GameManager : MonoBehaviour
                 runTime = 0f;
                 sectionNumber++;
             }
+        }
+        else
+        {
+            GetComponent<AudioSource>().enabled = false;
         }
     }
 }
