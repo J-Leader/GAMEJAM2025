@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public bool gameStart;
     public bool running;
     [SerializeField] private float runTime;
     public float RunTime
@@ -24,23 +26,32 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        running = true;
+        running = false;
+        gameStart = false;
         sectionNumber = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (running)
+        if (gameStart == true)
         {
-         runTime += Time.fixedDeltaTime;
-        //Debug.Log(runTime);  
-        if (runTime >= 15)
+            running = true;
+        }
+        else
         {
-            runTime = 0f;
-            sectionNumber++;   
-        }   
+            running = false;
         }
         
+        if (running)
+        {
+            runTime += Time.fixedDeltaTime;
+            //Debug.Log(runTime);  
+            if (runTime >= 15)
+            {
+                runTime = 0f;
+                sectionNumber++;
+            }
+        }
     }
 }

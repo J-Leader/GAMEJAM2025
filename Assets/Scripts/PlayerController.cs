@@ -2,62 +2,85 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    // Player variables
     private PlayerControls controls;
     private InputAction movement;
+    private InputAction startGame;
+    private InputAction resetGame;
     private Rigidbody2D rb2d;
-
     public float pushUp; // the variable for pushing the pakyer up
     public float pushForward;
+    public bool playerHit;
 
+    // Layers
     private LayerMask player;
     private LayerMask obstacles;
 
+    // Gameobject
     public GameObject gameManager;
 
 
 
-    void Awake()
+    void Awake() // initalise variables
     {
         controls = new PlayerControls();
         movement = controls.Movement.Jump;
+        startGame = controls.Interaction.Start;
+        resetGame = controls.Interaction.Reset;
         movement.performed += jump;
+        startGame.performed += start;
+        resetGame.performed += reset;
         player = LayerMask.GetMask("Player");
         obstacles = LayerMask.GetMask("Obstacles");
         rb2d = GetComponent<Rigidbody2D>();
+        playerHit = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
-    void OnEnable()
+    void OnEnable() // enable the interactions
     {
         movement.Enable();
+        startGame.Enable();
+        resetGame.Enable();
     }
 
-    void jump(InputAction.CallbackContext context)
+    void jump(InputAction.CallbackContext context) // jump action pushes the player up
     {
         rb2d.AddForce(Vector3.up * pushUp, ForceMode2D.Impulse);
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void start(InputAction.CallbackContext context) // start action begins the game
+    {
+        gameManager.GetComponent<GameManager>().gameStart = true;
+    }
+
+    void reset(InputAction.CallbackContext context) // reset action restarts the game if the player has been hit
+    {
+        if (playerHit == true)
+        {
+            SceneManager.LoadScene("Player");
+            playerHit = false;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) // stops the game if the player has hit a trash can
     {
         if (other.IsTouchingLayers(3) == false)
         {
             stunned();
+            playerHit = true;
         }
     }
 
-    void stunned()
+    void stunned() // method for stunning the player if they hit a trach can
     {
-            gameManager.GetComponent<GameManager>().running = false;
-            rb2d.AddForce(Vector3.right * pushForward, ForceMode2D.Impulse);
-            Debug.Log("You've hit the trash can");
-        }
+        gameManager.GetComponent<GameManager>().gameStart = false;
+        rb2d.AddForce(Vector3.right * pushForward, ForceMode2D.Impulse);
     }
+
+    }
+    
 
