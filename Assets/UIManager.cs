@@ -8,10 +8,12 @@ public class UIManager : MonoBehaviour
     public GameObject gameManager;
     public GameObject startText;
     public GameObject resetText;
+    public GameObject jumpText;
+    private float textDespawnTimer = 5.0f;
 
-    void Start()
+    void Awake()
     {
-
+        startText.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
@@ -19,6 +21,7 @@ public class UIManager : MonoBehaviour
     {
         startUIManager();
         resetUIManager();
+        jumpTutorialText();
     }
 
     void startUIManager()
@@ -39,6 +42,19 @@ public class UIManager : MonoBehaviour
         else
         {
             resetText.SetActive(false);
+        }
+    }
+
+    void jumpTutorialText()
+    {
+        if (gameManager.GetComponent<GameManager>().gameStart == true && gameManager.GetComponent<GameManager>().running == true)
+        {
+            jumpText.SetActive(true);
+            textDespawnTimer -= Time.deltaTime;
+            if (textDespawnTimer <= 0)
+            {
+                jumpText.SetActive(false);
+            }
         }
     }
 }
