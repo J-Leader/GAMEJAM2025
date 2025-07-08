@@ -8,6 +8,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private GameObject ObstaclePrefab;
 
     [SerializeField] private float SpawnTimer;
+    [SerializeField] private GameManager gameManager;
 
 
 
@@ -31,7 +32,7 @@ public class ObstacleSpawner : MonoBehaviour
     void Spawn()
     {
         Instantiate(ObstaclePrefab, transform.position, Quaternion.identity);
-        SpawnTimer = Random.Range(7f, 13f);  
+        SpawnTimer = Random.Range(7f-gameManager.SectionNumber, 13f-gameManager.SectionNumber);  
 
      }
 }
