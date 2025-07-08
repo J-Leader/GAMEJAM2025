@@ -10,6 +10,7 @@ public class ObjectBehaviour : MonoBehaviour
     void Awake()
     {
         direction = new Vector3(movementSpeed, 0f, 0f);
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
