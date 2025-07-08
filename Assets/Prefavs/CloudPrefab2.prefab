@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90833f83a3c25cb4b9623079eab043c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
+  movementSpeed: 5
   scaleMin: 0.5
   scaleMax: 1.5
   localScale: {x: 0, y: 0, z: 0}

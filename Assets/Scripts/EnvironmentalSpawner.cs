@@ -26,6 +26,8 @@ public class EnvironmentalSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (gameManager.running)
+        {
         SpawnTimer = SpawnTimer - Time.fixedDeltaTime;
         SpawnPos = new Vector3(transform.position.x, transform.position.y - Random.Range(0.5f, 2f), transform.position.z);
         SpawnPrefab = Random.Range(0, 1);
@@ -34,6 +36,10 @@ public class EnvironmentalSpawner : MonoBehaviour
             Spawn();
 
         }
+
+
+    }
+        
     }
 
     void Spawn()

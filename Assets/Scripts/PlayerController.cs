@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerHit == true)
         {
-            SceneManager.LoadScene("Player");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             playerHit = false;
         }
     }

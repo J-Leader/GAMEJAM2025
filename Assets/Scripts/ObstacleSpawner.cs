@@ -25,14 +25,18 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        SpawnTimer = SpawnTimer - Time.fixedDeltaTime;
+        if (gameManager.running)
+        {
+          SpawnTimer = SpawnTimer - Time.fixedDeltaTime;
         
 
         if (SpawnTimer <= 0)
         {
             Spawn();
 
+        }  
         }
+        
 
 
     }
