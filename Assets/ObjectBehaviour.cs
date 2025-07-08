@@ -11,6 +11,7 @@ public class ObjectBehaviour : MonoBehaviour
     {
         direction = new Vector3(movementSpeed, 0f, 0f);
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        movementSpeed = Random.Range(2f, 2f+gameManager.SectionNumber);
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class ObjectBehaviour : MonoBehaviour
     {
         if (gameManager.running)
         {
-            transform.position = transform.position - direction * Time.fixedDeltaTime;
+            transform.position = transform.position - direction * Time.fixedDeltaTime * movementSpeed;
         }
     }
 }

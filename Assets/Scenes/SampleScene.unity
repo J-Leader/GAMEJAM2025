@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aa6c18b4f39b1a54795fa9f91f1f50a9, type: 3}
-  m_Color: {r: 0.94509804, g: 0.62612337, b: 0, a: 1}
+  m_Color: {r: 0.7429919, g: 0.48235294, b: 0.9254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -201,7 +201,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.05, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -486,6 +486,7 @@ MonoBehaviour:
   Background1: {fileID: 18145621}
   Background2: {fileID: 829702272}
   SpawnPoint: {fileID: 110851227}
+  gameManager: {fileID: 0}
 --- !u!4 &636728944
 Transform:
   m_ObjectHideFlags: 0
@@ -580,7 +581,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.05, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -602,8 +603,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6697a4713854b49b152ab490daef72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  push: 5
-  gameManager: {fileID: 0}
+  pushUp: 10
+  pushForward: 10
+  gameManager: {fileID: 1408651151}
+--- !u!1 &1408651151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3101413210350884125, guid: 5e6cc1a89a9c245248033e81cba9f84b, type: 3}
+  m_PrefabInstance: {fileID: 448048351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1408651152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7766682731794730020, guid: 5e6cc1a89a9c245248033e81cba9f84b, type: 3}
+  m_PrefabInstance: {fileID: 448048351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408651151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a297441c40e4faba256d82dba9b704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2102378590
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstaclePrefab: {fileID: 3614256746008336643, guid: 332f5fa700d9d4133b701e26ef341c09, type: 3}
   SpawnTimer: 0
+  gameManager: {fileID: 1408651152}
 --- !u!4 &2102378592
 Transform:
   m_ObjectHideFlags: 0

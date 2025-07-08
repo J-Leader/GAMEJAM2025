@@ -9,12 +9,15 @@ public class ObstacleSpawner : MonoBehaviour
 
     [SerializeField] private float SpawnTimer;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private float SpawnTimerMax;
+    [SerializeField] private float SpawnTimerMin;
 
 
 
     void Start()
     {
-        SpawnTimer = Random.Range(7f, 13f);
+        SpawnTimer = Random.Range(SpawnTimerMin, SpawnTimerMax);
+
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class ObstacleSpawner : MonoBehaviour
     void Spawn()
     {
         Instantiate(ObstaclePrefab, transform.position, Quaternion.identity);
-        SpawnTimer = Random.Range(7f-gameManager.SectionNumber, 13f-gameManager.SectionNumber);  
+        SpawnTimer = Random.Range(SpawnTimerMin-gameManager.SectionNumber, SpawnTimerMax-gameManager.SectionNumber);  
 
      }
 }
