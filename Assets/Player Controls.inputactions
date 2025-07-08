@@ -34,9 +34,18 @@
             "id": "cfaca3a4-5fbd-46be-b65e-febdbac67767",
             "actions": [
                 {
-                    "name": "Interact",
+                    "name": "Start",
                     "type": "Button",
                     "id": "a5177025-8164-40f0-ad0d-065d97bea10f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Reset",
+                    "type": "Button",
+                    "id": "3263931e-3c90-483b-9eb9-7f17517b280f",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -51,7 +60,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac2429cc-c28a-41a6-9a23-243f91478491",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
