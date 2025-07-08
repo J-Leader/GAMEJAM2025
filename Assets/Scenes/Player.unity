@@ -506,6 +506,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3027b14d30d9c14c804c66fa64caab3, type: 3}
+--- !u!1 &1950168183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6266541485162317111, guid: 161fc76b2c63e45d68265d1448bfb397, type: 3}
+  m_PrefabInstance: {fileID: 7341090219495024506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2710108014516199151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -595,9 +600,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 836074711}
     - target: {fileID: 454953101505009704, guid: 161fc76b2c63e45d68265d1448bfb397, type: 3}
+      propertyPath: jumpText
+      value: 
+      objectReference: {fileID: 1950168183}
+    - target: {fileID: 454953101505009704, guid: 161fc76b2c63e45d68265d1448bfb397, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1654574521}
+    - target: {fileID: 5205752376841937120, guid: 161fc76b2c63e45d68265d1448bfb397, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5520729894969941960, guid: 161fc76b2c63e45d68265d1448bfb397, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.061636
@@ -638,9 +651,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5743707052657155138, guid: 161fc76b2c63e45d68265d1448bfb397, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181385731534533845, guid: 161fc76b2c63e45d68265d1448bfb397, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7444571693765077069, guid: 161fc76b2c63e45d68265d1448bfb397, type: 3}
       propertyPath: m_Name
       value: UI Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852146402914713626, guid: 161fc76b2c63e45d68265d1448bfb397, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
