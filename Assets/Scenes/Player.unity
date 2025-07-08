@@ -142,6 +142,7 @@ MonoBehaviour:
   pushUp: 15
   pushForward: 10
   playerHit: 0
+  jumpThreshold: -2
   gameManager: {fileID: 1654574521}
 --- !u!1001 &1311984082
 PrefabInstance:

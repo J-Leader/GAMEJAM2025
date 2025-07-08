@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float pushUp; // the variable for pushing the pakyer up
     public float pushForward;
     public bool playerHit;
+    public float jumpThreshold;
 
     // Layers
     private LayerMask player;
@@ -42,9 +43,20 @@ public class PlayerController : MonoBehaviour
 
     void OnEnable() // enable the interactions
     {
-        movement.Enable();
         startGame.Enable();
         resetGame.Enable();
+    }
+
+    void Update()
+    {
+        if (transform.position.y > jumpThreshold)
+        {
+            movement.Disable();
+        }
+        else
+        {
+            movement.Enable();
+        }
     }
 
     void jump(InputAction.CallbackContext context) // jump action pushes the player up
