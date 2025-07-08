@@ -57,6 +57,10 @@ public class PlayerController : MonoBehaviour
         {
             movement.Enable();
         }
+        if (gameManager.GetComponent<GameManager>().running != true)
+        {
+            this.GetComponent<Animator>().Play("Player", -1, 0f);
+        }
     }
 
     void jump(InputAction.CallbackContext context) // jump action pushes the player up
