@@ -59,14 +59,14 @@ public class BackgroundController : MonoBehaviour
         {
             Background1.transform.position = Background1.transform.position - Direction * Time.fixedDeltaTime * Speed;
             Background1X = Background1.transform.position.x;
-            if (Background1X <= -23.5)
+            if (Background1X <= -24.8)
             {
                 BackgroundChange(Background1, Background1Counter);
                 Background1Counter = Random.Range(0, 3);
             }
             Background2.transform.position = Background2.transform.position - Direction * Time.fixedDeltaTime * Speed;
             Background2X = Background2.transform.position.x;
-            if (Background2X <= -23.5)
+            if (Background2X <= -24.8)
             {
                 BackgroundChange(Background2, Background2Counter);
                 Background2Counter = Random.Range(0, 3);
