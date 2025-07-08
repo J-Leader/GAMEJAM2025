@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private InputAction movement;
     private Rigidbody2D rb2d;
 
-    public float push; // the variable for pushing the pakyer up
+    public float pushUp; // the variable for pushing the pakyer up
+    public float pushForward;
 
     private LayerMask player;
     private LayerMask obstacles;
@@ -31,8 +32,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        stunned();
+       
     }
 
     void OnEnable()
@@ -42,15 +42,22 @@ public class PlayerController : MonoBehaviour
 
     void jump(InputAction.CallbackContext context)
     {
-        rb2d.AddForce(Vector3.up * push, ForceMode2D.Impulse);
+        rb2d.AddForce(Vector3.up * pushUp, ForceMode2D.Impulse);
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.IsTouchingLayers(3) == false)
+        {
+            stunned();
+        }
     }
 
     void stunned()
     {
-        if (gameObject.GetComponent<Collider2D>().IsTouchingLayers(obstacles)) {
-
             gameManager.GetComponent<GameManager>().running = false;
+            rb2d.AddForce(Vector3.right * pushForward, ForceMode2D.Impulse);
             Debug.Log("You've hit the trash can");
         }
     }
-}
+
