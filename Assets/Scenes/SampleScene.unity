@@ -867,6 +867,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4047796214197611952, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
+      propertyPath: endPoint
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047796214197611952, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1408651151}
@@ -941,7 +945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2374558789574855778, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
       propertyPath: m_LocalPosition.x

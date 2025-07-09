@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     // Gameobject
     public GameObject gameManager;
+    public Collider2D endPoint;
 
 
 
