@@ -35,6 +35,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""b4a54396-39db-4395-b9c8-59c4a0591a33"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -46,6 +55,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea4d97a7-5b2b-47c6-9988-2bb514a08f46"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8bcd253-d5fa-420c-81de-d1acdff4b3e8"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -88,8 +119,30 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2c5b92e0-34ac-4709-92f7-928ba2c2b154"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ac2429cc-c28a-41a6-9a23-243f91478491"",
                     ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc09a529-65c8-4ce3-a9c3-79846fa42a43"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -100,11 +153,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
+        m_Movement_Newaction = m_Movement.FindAction("New action", throwIfNotFound: true);
         // Interaction
         m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
         m_Interaction_Start = m_Interaction.FindAction("Start", throwIfNotFound: true);
@@ -177,11 +243,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Movement;
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_Jump;
+    private readonly InputAction m_Movement_Newaction;
     public struct MovementActions
     {
         private @PlayerControls m_Wrapper;
         public MovementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
+        public InputAction @Newaction => m_Wrapper.m_Movement_Newaction;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -194,6 +262,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -201,6 +272,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -272,9 +346,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public InteractionActions @Interaction => new InteractionActions(this);
+    private int m_KeyboardSchemeIndex = -1;
+    public InputControlScheme KeyboardScheme
+    {
+        get
+        {
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
     public interface IMovementActions
     {
         void OnJump(InputAction.CallbackContext context);
+        void OnNewaction(InputAction.CallbackContext context);
     }
     public interface IInteractionActions
     {
