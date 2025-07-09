@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
         if (player.GetComponent<PlayerController>().playerHit == true)
         {
             music.Stop();
-            Debug.Log("stop");
+            //Debug.Log("stop");
         }
     }
 }

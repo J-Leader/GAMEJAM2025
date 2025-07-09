@@ -43,8 +43,8 @@ public class BackgroundController : MonoBehaviour
         colours[2] = new Color32(156, 231, 106, 255);
 
         Background1.GetComponent<SpriteRenderer>().color = colours[gameManager.SectionNumber];
-        Debug.Log(colours[gameManager.SectionNumber]);
-        Debug.Log(Background1.GetComponent<SpriteRenderer>().color);
+        // Debug.Log(colours[gameManager.SectionNumber]);
+        // Debug.Log(Background1.GetComponent<SpriteRenderer>().color);
         Background2.GetComponent<SpriteRenderer>().color = colours[gameManager.SectionNumber];
 
 

@@ -49,13 +49,22 @@ MonoBehaviour:
   gameStart: 0
   running: 0
   runTime: 0
+  musicClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   music: {fileID: 4060349012414521401}
   bell: {fileID: 8974602656872007574}
   sectionA: {fileID: 8300000, guid: c9c40c98e0a564611b5c289f4f7a134b, type: 3}
   section1: {fileID: 8300000, guid: 8ac135cc619334b0591ddc4e549b04f7, type: 3}
-  section2: {fileID: 0}
-  section3: {fileID: 0}
+  section2: {fileID: 8300000, guid: e26ad8f062b89422ba1966ad7bb68611, type: 3}
+  section3: {fileID: 8300000, guid: 79bcbd55fdaec439488510177d6ac49b, type: 3}
   sectionB: {fileID: 0}
+  ambience: {fileID: 0}
+  player: {fileID: 0}
   lastSection: 0
   sectionNumber: 0
 --- !u!82 &4060349012414521401

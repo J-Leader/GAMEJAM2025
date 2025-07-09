@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float pushForward;
     public bool playerHit;
     public float jumpThreshold;
+    public Animator animator;
 
     // Layers
     private LayerMask player;
@@ -57,10 +58,11 @@ public class PlayerController : MonoBehaviour
         {
             movement.Enable();
         }
-        if (gameManager.GetComponent<GameManager>().running != true)
-        {
-            this.GetComponent<Animator>().Play("Player", -1, 0f);
-        }
+
+        jumpAnimation();
+        fallingAnimation();
+
+
     }
 
     void jump(InputAction.CallbackContext context) // jump action pushes the player up
@@ -95,6 +97,31 @@ public class PlayerController : MonoBehaviour
     {
         gameManager.GetComponent<GameManager>().gameStart = false;
         rb2d.AddForce(Vector3.right * pushForward, ForceMode2D.Impulse);
+    }
+
+    void jumpAnimation()
+    {
+        if (transform.position.y > jumpThreshold)
+        {
+            animator.SetBool("isJumping", true);
+        }
+
+        if (transform.position.y <= jumpThreshold)
+        {
+            animator.SetBool("isJumping", false);
+        }
+    }
+
+    void fallingAnimation()
+    {
+        if (playerHit == true)
+        {
+            animator.SetBool("hasFallen", true);
+        }
+        else
+        {
+            animator.SetBool("hasFallen", false);
+        }
     }
 
     }
