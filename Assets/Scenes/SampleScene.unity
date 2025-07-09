@@ -850,6 +850,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3253932956002390228, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253932956002390228, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253932956002390228, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253932956002390228, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4047796214197611952, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
       propertyPath: gameManager
       value: 
