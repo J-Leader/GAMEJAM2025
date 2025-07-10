@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public bool gameStart;
     public bool running;
+    public bool beginMusic = false;
     [SerializeField] private float runTime;
 
     // Audio
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour
         {
             runTime += Time.fixedDeltaTime;
             //Debug.Log(runTime);  
-            if (runTime >= 15)
+            if (runTime >= 14.769)
             {
                 runTime = 0f;
                 sectionNumber++;
@@ -91,12 +92,20 @@ public class GameManager : MonoBehaviour
         {
             sectionMusic();
         }
+        initialiseGameMusic();
     }
 
     private void sectionMusic() // changes the section music based on the section number
     {
         sectionAudioChange(); // manages the sectionChnage switch
-        if (SectionNumber == 1 && sectionChange == true) // section 1
+        int count = 0;
+        if (SectionNumber == 0 && sectionChange == true)
+        {
+            music.clip = musicClips[0];
+            music.Play();
+            sectionChange = false;
+        }
+        else if (SectionNumber == 1 && sectionChange == true) // section 1
         {
             music.clip = musicClips[1]; // set the clip to the section clip
             music.Play(); // play music
@@ -165,6 +174,15 @@ public class GameManager : MonoBehaviour
         if (gameStart == true)
         {
             player.GetComponent<SpriteRenderer>().enabled = true;
+        }
+    }
+
+    void initialiseGameMusic()
+    {
+        if (gameStart == true && beginMusic == false)
+        {
+            sectionChange = true;
+            beginMusic = true;
         }
     }
 }
