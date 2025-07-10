@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public bool playerHit;
     public float jumpThreshold;
     public Animator animator;
+    public AudioSource jumping;
+    public AudioSource impact;
 
     // Layers
     private LayerMask player;
@@ -62,7 +64,8 @@ public class PlayerController : MonoBehaviour
 
         jumpAnimation();
         fallingAnimation();
-
+        sfx();
+        // Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Landing"));
 
     }
 
@@ -122,6 +125,20 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetBool("hasFallen", false);
+        }
+    }
+
+    void sfx()
+    {
+        if (animator.GetBool("isJumping") && !jumping.isPlaying)
+        {
+            jumping.Play();
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Landing") && !impact.isPlaying)
+        {
+            impact.Play();
+            Debug.Log("Played");
         }
     }
 

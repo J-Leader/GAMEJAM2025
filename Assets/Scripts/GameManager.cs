@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // we should probably put a bunch of this code in methods lol
 
-    public bool gameStart;
-    public bool running;
-    [SerializeField] private float runTime;
+
+    // Game States
+    public bool gameStart; // to check if we've started the game, running is dependent on this
+    public bool running; // to check if we're running
+    private bool beginMusic = false; // to signal the music transition when we start the game
+    [SerializeField] private float runTime; // the run time for each section
 
     // Audio
     public AudioClip[] musicClips = new AudioClip[6]; // holds audio clips for sections
     public AudioSource music; // the audio source for our section music
     public AudioSource bell; // the audio source for the bell
-    public AudioClip sectionA; 
+    public AudioClip sectionA;
     public AudioClip section1;
     public AudioClip section2;
     public AudioClip section3;
@@ -31,8 +35,8 @@ public class GameManager : MonoBehaviour
             return runTime;
         }
     }
-    [SerializeField] private int lastSection;
-    [SerializeField] private int sectionNumber;
+    [SerializeField] private int lastSection; // to track our last section (for audio)
+    [SerializeField] private int sectionNumber; // to track our current section
     public int SectionNumber
     {
         get
@@ -43,13 +47,14 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        running = false;
-        gameStart = false;
-        sectionNumber = 0;
+        running = false; // we won't be running at the launch
+        gameStart = false; // the game has not started when we launch
+        sectionNumber = 0; // our first section number (section a) is 0
         lastSection = SectionNumber; // set our last section to the section number (will be 0 at the beginning of the game)
+        player.GetComponent<SpriteRenderer>().enabled = false; // our sprite is not rendered in
 
         // fill in the array - these values need to have an AudioClip assigned in the editor
-        musicClips[0] = sectionA;
+        musicClips[0] = sectionA; 
         musicClips[1] = section1;
         musicClips[2] = section2;
         musicClips[3] = section3;
@@ -60,7 +65,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (gameStart == true)
+        if (gameStart == true) // commence running if the game has started
         {
             running = true;
         }
@@ -69,24 +74,27 @@ public class GameManager : MonoBehaviour
             running = false;
         }
 
-        if (running)
+        if (running) // tracks our progress in each section
         {
-            runTime += Time.fixedDeltaTime;
-            //Debug.Log(runTime);  
-            if (runTime >= 15)
+            runTime += Time.fixedDeltaTime; // increase run time 
+            if (runTime >= 14.769) // if we reach the end of a section 
             {
-                runTime = 0f;
-                sectionNumber++;
+                runTime = 0f; // reset the run time
+                sectionNumber++; // increase the section number
             }
         }
         else
         {
-            
+
         }
 
+        // initialising methods
+        activateSprite(); // see method
 
-        musicManager(); // stops the music if we hit a trash can
-        if (running == true) // change the section music while running
+        // music methods
+        musicManager(); // see method
+        initialiseGameMusic(); // see method
+        if (running == true) // see method
         {
             sectionMusic();
         }
@@ -94,8 +102,14 @@ public class GameManager : MonoBehaviour
 
     private void sectionMusic() // changes the section music based on the section number
     {
-        sectionAudioChange(); // manages the sectionChnage switch
-        if (SectionNumber == 1 && sectionChange == true) // section 1
+        sectionAudioChange(); // see method
+        if (SectionNumber == 0 && sectionChange == true) // section A
+        {
+            music.clip = musicClips[0];
+            music.Play();
+            sectionChange = false;
+        }
+        else if (SectionNumber == 1 && sectionChange == true) // section 1
         {
             music.clip = musicClips[1]; // set the clip to the section clip
             music.Play(); // play music
@@ -128,11 +142,11 @@ public class GameManager : MonoBehaviour
 
         if (running == true) // play the bell sound if we're running
         {
-            playBell(); // method to play the bell sound
+            playBell(); // see method
         }
     }
 
-    private void playBell()
+    private void playBell() // play the bell sound
     {
         if (hasPlayed != true) // if we haven't played the bell sound
         {
@@ -152,10 +166,27 @@ public class GameManager : MonoBehaviour
 
     private void musicManager() // stops music if we hit a trash can
     {
-        if (player.GetComponent<PlayerController>().playerHit == true)
+        if (player.GetComponent<PlayerController>().playerHit == true) // if the player has been hit
         {
-            music.Stop();
+            music.Stop();//stop the music
             //Debug.Log("stop");
+        }
+    }
+
+    private void activateSprite() // activates player sprite if we've started game
+    {
+        if (gameStart == true) // if the game has started
+        {
+            player.GetComponent<SpriteRenderer>().enabled = true; // enable sprite
+        }
+    }
+
+    void initialiseGameMusic() // starts our section transitions when we start the game
+    {
+        if (gameStart == true && beginMusic == false) // if the game has started and we haevn't started the music
+        {
+            sectionChange = true; // start changing the section music (changes to Section A)
+            beginMusic = true; // let the system knwo we've started the music
         }
     }
 }
