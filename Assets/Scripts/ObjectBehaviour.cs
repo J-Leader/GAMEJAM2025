@@ -5,14 +5,14 @@ using UnityEngine;
 public class ObjectBehaviour : MonoBehaviour
 {
     private Vector3 direction;
-    [SerializeField] private float movementSpeed;
+    public float movementSpeed;
     public GameManager gameManager;
     void Awake()
     {
 
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         direction = new Vector3(movementSpeed, 0f, 0f);
-        movementSpeed = Random.Range(2f, 2f + gameManager.SectionNumber);
+        movementSpeed = Random.Range(2f + (gameManager.SectionNumber - 1), 2f + gameManager.SectionNumber);
     }
 
     // Update is called once per frame
