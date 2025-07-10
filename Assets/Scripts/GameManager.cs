@@ -27,6 +27,17 @@ public class GameManager : MonoBehaviour
     private bool sectionChange = false; // checks whether we've changed sections
 
     public GameObject player;
+    [SerializeField] private GameObject mainCam;
+    [SerializeField] private float playerSpeed;
+    [SerializeField] private float camSpeed;
+    private Vector3 houseCamPos;
+    private Vector3 endCamPos;
+    private Vector3 endPlayerPos;
+    [SerializeField] private GameObject CloudSpawner;
+    [SerializeField] private GameObject BushSpawner;
+    [SerializeField] private GameObject CloseBushSpawner;
+    [SerializeField] private GameObject ObstacleSpawner;
+    [SerializeField] private UIManager uiManager;
 
     public float RunTime
     {
@@ -60,6 +71,11 @@ public class GameManager : MonoBehaviour
         musicClips[3] = section3;
         musicClips[4] = sectionB;
         musicClips[5] = ambience;
+
+
+        houseCamPos = new Vector3(27.5f, 1f, -10f);
+        endCamPos = new Vector3(27.5f, 10f, -10f);
+        endPlayerPos = new Vector3(34.5f, -3.18f, 0f);
     }
 
     // Update is called once per frame
@@ -98,6 +114,39 @@ public class GameManager : MonoBehaviour
         {
             sectionMusic();
         }
+
+
+
+
+        //EndingCutscene
+        if(SectionNumber >=4)
+        {
+            CloudSpawner.SetActive(false);
+            CloseBushSpawner.SetActive(false);
+            BushSpawner.SetActive(false);
+            ObstacleSpawner.SetActive(false);
+            Destroy(GameObject.FindGameObjectWithTag("Obstacle"));
+
+            if(mainCam.transform.position.x == endCamPos.x)
+            {
+                camSpeed = 3f;
+                mainCam.transform.position = Vector3.MoveTowards(mainCam.transform.position, endCamPos, camSpeed * Time.fixedDeltaTime);
+            }
+            else
+            {
+                mainCam.transform.position = Vector3.MoveTowards(mainCam.transform.position, houseCamPos, camSpeed * Time.fixedDeltaTime);
+            }
+            player.transform.position = Vector3.MoveTowards(player.transform.position, endPlayerPos, playerSpeed * Time.fixedDeltaTime);
+
+            if(mainCam.transform.position == endCamPos)
+            {
+                player.GetComponent<PlayerController>().playerHit = true;
+                uiManager.endUIManager();
+            }
+            
+        }
+        
+
     }
 
     private void sectionMusic() // changes the section music based on the section number

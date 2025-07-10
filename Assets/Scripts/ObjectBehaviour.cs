@@ -22,6 +22,10 @@ public class ObjectBehaviour : MonoBehaviour
         {
             transform.position = transform.position - direction * Time.fixedDeltaTime * movementSpeed;
         }
+        if(transform.position.x <= -20)
+        {
+            Destroy(gameObject);
+        }
     }
     
     void OnTriggerExit2D(Collider2D other) // stops the game if the player has hit a trash can

@@ -30,5 +30,9 @@ public class ForegroundBehaviour : MonoBehaviour
         {
             transform.position = transform.position - direction * Time.fixedDeltaTime * movementSpeed;
         }
+        if(transform.position.x <= -20)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -21,6 +21,7 @@ public class ObstacleSpawner : MonoBehaviour
         SpawnTimer = Random.Range(SpawnTimerMin, SpawnTimerMax);
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         scriptedSectionTracker = 0;
+    
 
     }
 
@@ -51,10 +52,10 @@ public class ObstacleSpawner : MonoBehaviour
             SpawnTimer = SpawnTimer - Time.fixedDeltaTime;
 
 
-            if (SpawnTimer <= 0)
+            if (SpawnTimer <= 0 && gameManager.SectionNumber > 0)
             {
-                //Spawn();
-                spawningPatterns();
+                Spawn();
+                //spawningPatterns();
 
             }
         }

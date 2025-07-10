@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject startText;
     public GameObject resetText;
     public GameObject jumpText;
+    public GameObject endText;
     private float textDespawnTimer = 5.0f;
 
     void Awake()
@@ -22,6 +23,11 @@ public class UIManager : MonoBehaviour
         startUIManager();
         resetUIManager();
         jumpTutorialText();
+    }
+
+    public void endUIManager()
+    {
+        endText.SetActive(true);
     }
 
     void startUIManager()

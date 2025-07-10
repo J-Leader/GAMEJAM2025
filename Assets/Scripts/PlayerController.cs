@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Landing") && !impact.isPlaying)
         {
             impact.Play();
-            Debug.Log("Played");
+            //Debug.Log("Played");
         }
     }
 
