@@ -22,7 +22,7 @@ public class BackgroundController : MonoBehaviour
     [SerializeField] private int Background2Current;
     [SerializeField] private int SectionColour;
     [SerializeField] private Sprite[] sprites = new Sprite[2];
-    private Color32[] colours = new Color32[3];
+    private Color32[] colours = new Color32[5];
     [SerializeField] private GameObject Background1;
     [SerializeField] private GameObject Background2;
 
@@ -38,9 +38,12 @@ public class BackgroundController : MonoBehaviour
         Background1Current = 0;
         Background2Current = 1;
 
-        colours[0] = new Color32(203, 140, 141, 255);
+        colours[0] = new Color32(255, 255, 255, 255);
         colours[1] = new Color32(140, 180, 241, 255);
         colours[2] = new Color32(156, 231, 106, 255);
+        colours[3] = new Color32(156, 231, 106, 255);
+        colours[4] = colours[0];
+
 
         Background1.GetComponent<SpriteRenderer>().color = colours[gameManager.SectionNumber];
         // Debug.Log(colours[gameManager.SectionNumber]);

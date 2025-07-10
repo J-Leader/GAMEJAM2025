@@ -426,7 +426,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4620d441adc12b44bb09c86a338c3808, type: 3}
+  m_Sprite: {fileID: 1745411382, guid: 5db0fe901e0b594448bc07dbca274ce9, type: 3}
   m_Color: {r: 0.6114244, g: 0.9056604, b: 0.41438237, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -536,6 +536,95 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &931265026
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: flag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: SpawnPrefab
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1408651152}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: SpawnTimerMax
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: SpawnTimerMin
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: ObstaclePrefab.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: ObstaclePrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 4024605098265401588, guid: 04aec62b32f0d0b479e5892d02b9dbfa, type: 3}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: ObstaclePrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 3155287158066209434, guid: 7d365da4c2175df47a0cdf75f5d6ab08, type: 3}
+    - target: {fileID: 692965489700294067, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_Name
+      value: BushSpawner (Close)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.163404
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141356742480884755, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
 --- !u!1001 &1036312393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,6 +637,18 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1408651152}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: ObstaclePrefab.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: ObstaclePrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 4024605098265401588, guid: 2abcb4bd3a3f473488bd77cb98d54268, type: 3}
+    - target: {fileID: -7868908397836265135, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
+      propertyPath: ObstaclePrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 3155287158066209434, guid: 24bc4ee27fea4e44987970333f13be05, type: 3}
     - target: {fileID: 692965489700294067, guid: 5309a2301f77c0545bb1c8b4e1bfdb74, type: 3}
       propertyPath: m_Name
       value: BushSpawner
@@ -818,7 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5e7fadf56d3ff4bb0ca9dddf4b4204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstaclePrefab: {fileID: 2374558789574855778, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+  ObstaclePrefab: {fileID: 7914552692144133874, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
   SpawnTimer: 0
   gameManager: {fileID: 1408651152}
   SpawnTimerMax: 10
@@ -880,7 +981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6746063523581403762, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.42
+      value: -8.1
       objectReference: {fileID: 0}
     - target: {fileID: 6746063523581403762, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -927,7 +1028,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1348870225}
   m_SourcePrefab: {fileID: 100100000, guid: ea2b6f71beebdec499b12341ef50db7a, type: 3}
---- !u!1001 &3749279497937879134
+--- !u!1001 &4595521873904295866
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -935,63 +1036,59 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5578730877698165555, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 1408651152}
-    - target: {fileID: 2374558789574855778, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
-      propertyPath: m_Name
-      value: Obstacle
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374558789574855778, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.03
       objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.35
       objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3095746206689957173, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+    - target: {fileID: 2073234424047021, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734770366061745133, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1408651152}
+    - target: {fileID: 7914552692144133874, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
+      propertyPath: m_Name
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8c8ea42e0f31f8c49ad55f2c5a8b45f0, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 818e9a4d3989d464ab08d17c34b93179, type: 3}
 --- !u!1001 &6852039055821124233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1064,9 +1161,10 @@ SceneRoots:
   - {fileID: 636728944}
   - {fileID: 829702274}
   - {fileID: 761642937}
-  - {fileID: 3749279497937879134}
+  - {fileID: 4595521873904295866}
   - {fileID: 2102378592}
   - {fileID: 448048351}
   - {fileID: 1450147389}
   - {fileID: 1036312393}
+  - {fileID: 931265026}
   - {fileID: 1112265448}

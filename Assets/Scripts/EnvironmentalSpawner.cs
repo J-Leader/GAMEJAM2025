@@ -12,6 +12,7 @@ public class EnvironmentalSpawner : MonoBehaviour
     [SerializeField] private float SpawnTimerMax;
     [SerializeField] private float SpawnTimerMin;
     [SerializeField] private int SpawnPrefab;
+    [SerializeField] private bool flag;
 
 
 
@@ -44,7 +45,14 @@ public class EnvironmentalSpawner : MonoBehaviour
 
     void Spawn()
     {
-        Instantiate(ObstaclePrefab[SpawnPrefab], SpawnPos, Quaternion.identity);
+       
+        if(!flag){
+             Instantiate(ObstaclePrefab[SpawnPrefab], SpawnPos, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(ObstaclePrefab[SpawnPrefab], transform.position, Quaternion.identity);
+        }
         SpawnTimer = Random.Range(SpawnTimerMin-gameManager.SectionNumber, SpawnTimerMax-gameManager.SectionNumber);  
 
      }
