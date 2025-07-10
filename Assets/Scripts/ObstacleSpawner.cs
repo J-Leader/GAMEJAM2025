@@ -53,8 +53,8 @@ public class ObstacleSpawner : MonoBehaviour
 
             if (SpawnTimer <= 0)
             {
-                //Spawn();
-                spawningPatterns();
+                Spawn();
+                //spawningPatterns();
 
             }
         }
@@ -70,51 +70,51 @@ public class ObstacleSpawner : MonoBehaviour
 
     }
 
-    void scriptedSpawn() 
-    {
-        Instantiate(ObstaclePrefab, transform.position, Quaternion.identity);
-    }
+    // void scriptedSpawn() 
+    // {
+    //     Instantiate(ObstaclePrefab, transform.position, Quaternion.identity);
+    // }
 
-    void spawningPatterns() // changes object behaviour based on section 
-    {
-        if (gameManager.GetComponent<GameManager>().SectionNumber == 0 && scriptedSectionTracker == 0)
-        {
-            Spawn();
-            scriptedSectionTracker++;
-        }
-        else if (gameManager.GetComponent<GameManager>().SectionNumber == 1)
-        {
-            if (scriptedSectionTracker == 1)
-            {
-                SpawnTimerMax = SpawnTimerMax - 2;
-                SpawnTimerMin = SpawnTimerMin - 2;
-                scriptedSectionTracker++;
-            }
-            Spawn();
-        }
-        else if (gameManager.GetComponent<GameManager>().SectionNumber == 2)
-        {
-            if (scriptedSectionTracker == 2)
-            {
-                SpawnTimerMax = SpawnTimerMax - 1;
-                SpawnTimerMin = SpawnTimerMin - 1;
-                scriptedSectionTracker++;
-            }
-            Spawn();
-        }
-        else if (gameManager.GetComponent<GameManager>().SectionNumber == 3)
-        {
-            if (scriptedSectionTracker == 3)
-            {
-                SpawnTimerMax = SpawnTimerMax - 0.5f;
-                SpawnTimerMin = SpawnTimerMin - 0.5f;
-                scriptedSectionTracker++;
-            }
-            Spawn();
-        }
-        else
-        {
+    // void spawningPatterns() // changes object behaviour based on section 
+    // {
+    //     if (gameManager.GetComponent<GameManager>().SectionNumber == 0 && scriptedSectionTracker == 0)
+    //     {
+    //         Spawn();
+    //         scriptedSectionTracker++;
+    //     }
+    //     else if (gameManager.GetComponent<GameManager>().SectionNumber == 1)
+    //     {
+    //         if (scriptedSectionTracker == 1)
+    //         {
+    //             SpawnTimerMax = SpawnTimerMax - 2;
+    //             SpawnTimerMin = SpawnTimerMin - 2;
+    //             scriptedSectionTracker++;
+    //         }
+    //         Spawn();
+    //     }
+    //     else if (gameManager.GetComponent<GameManager>().SectionNumber == 2)
+    //     {
+    //         if (scriptedSectionTracker == 2)
+    //         {
+    //             SpawnTimerMax = SpawnTimerMax - 1;
+    //             SpawnTimerMin = SpawnTimerMin - 1;
+    //             scriptedSectionTracker++;
+    //         }
+    //         Spawn();
+    //     }
+    //     else if (gameManager.GetComponent<GameManager>().SectionNumber == 3)
+    //     {
+    //         if (scriptedSectionTracker == 3)
+    //         {
+    //             SpawnTimerMax = SpawnTimerMax - 0.5f;
+    //             SpawnTimerMin = SpawnTimerMin - 0.5f;
+    //             scriptedSectionTracker++;
+    //         }
+    //         Spawn();
+    //     }
+    //     else
+    //     {
             
-        }
-    }
+    //     }
+    // }
 }

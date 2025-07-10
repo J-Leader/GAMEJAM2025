@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     public GameObject gameManager;
     public Collider2D endPoint;
 
+    public bool hitVibration;
+    public float vibratioTimer;
+
 
 
     void Awake() // initalise variables
@@ -43,6 +46,8 @@ public class PlayerController : MonoBehaviour
         obstacles = LayerMask.GetMask("Obstacles");
         rb2d = GetComponent<Rigidbody2D>();
         playerHit = false;
+        hitVibration = false;
+        vibratioTimer = 0.5f;
     }
 
     void OnEnable() // enable the interactions
@@ -66,6 +71,9 @@ public class PlayerController : MonoBehaviour
         fallingAnimation();
         sfx();
         // Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Landing"));
+
+        impactVibration();
+        binVibration();
 
     }
 
@@ -140,6 +148,41 @@ public class PlayerController : MonoBehaviour
             impact.Play();
             Debug.Log("Played");
         }
+    }
+
+    void impactVibration()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Landing"))
+        {
+            Gamepad.current.SetMotorSpeeds(.1f, .1f);
+        }
+        else
+        {
+            Gamepad.current.SetMotorSpeeds(0f, 0f);
+        }
+    }
+
+    void binVibration()
+    {
+        if (hitVibration == true)
+        {
+            vibratioTimer = vibratioTimer - Time.deltaTime;
+            if (vibratioTimer >= 0)
+            {
+                Gamepad.current.SetMotorSpeeds(.5f, .5f);
+            }
+            else
+            {
+                Gamepad.current.SetMotorSpeeds(0f, 0f);
+            }
+        }
+
+        if (playerHit == true)
+        {
+            hitVibration = true;
+            Debug.Log("cuck");
+        }
+        Debug.Log(vibratioTimer);
     }
 
     }
