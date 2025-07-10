@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public AudioClip[] musicClips = new AudioClip[6]; // holds audio clips for sections
     public AudioSource music; // the audio source for our section music
     public AudioSource bell; // the audio source for the bell
-    public AudioClip sectionA; 
+    public AudioClip sectionA;
     public AudioClip section1;
     public AudioClip section2;
     public AudioClip section3;
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         gameStart = false;
         sectionNumber = 0;
         lastSection = SectionNumber; // set our last section to the section number (will be 0 at the beginning of the game)
+        player.GetComponent<SpriteRenderer>().enabled = false;
 
         // fill in the array - these values need to have an AudioClip assigned in the editor
         musicClips[0] = sectionA;
@@ -81,10 +82,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            
+
         }
 
-
+        activateSprite();
         musicManager(); // stops the music if we hit a trash can
         if (running == true) // change the section music while running
         {
@@ -156,6 +157,14 @@ public class GameManager : MonoBehaviour
         {
             music.Stop();
             //Debug.Log("stop");
+        }
+    }
+
+    private void activateSprite()
+    {
+        if (gameStart == true)
+        {
+            player.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 }
